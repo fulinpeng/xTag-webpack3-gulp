@@ -2,7 +2,7 @@
  * @Author: fulp 
  * @Date: 2018-05-01 15:44:44 
  * @Last Modified by: fulp
- * @Last Modified time: 2018-05-01 19:15:24
+ * @Last Modified time: 2018-05-02 08:53:41
  */
 
 const webpack = require("webpack");
@@ -80,8 +80,7 @@ const config = {
   ]
 };
 
-if (ISDEV) {
-} else {
+if (!ISDEV) {
   //   config.rules = concat(config.rules, []);
   config.plugins = config.plugins.concat(
     // new UglifyjsWebpackPlugin(),
