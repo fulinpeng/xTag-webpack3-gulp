@@ -8,6 +8,7 @@ const controllerInit={
             _.get('/', index.index());
             _.get('/index/initnum', index.initnum());
             _.get('/index/addition', index.addition());
+            _.get('/list', index.list());
         }));
     }
 };

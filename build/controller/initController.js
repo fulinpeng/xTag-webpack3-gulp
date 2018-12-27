@@ -16,6 +16,7 @@ var controllerInit = {
             _.get('/', _indexController2.default.index());
             _.get('/index/initnum', _indexController2.default.initnum());
             _.get('/index/addition', _indexController2.default.addition());
+            _.get('/list', _indexController2.default.list());
         }));
     }
 }; /**

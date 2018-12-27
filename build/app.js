@@ -38,11 +38,28 @@ var _config2 = _interopRequireDefault(_config);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = new _koa2.default(); /**
-                                * Created by flp on 2018/4/12.
-                                */
+var cors = require('koa2-cors'); /**
+                                  * Created by flp on 2018/4/12.
+                                  */
 // 安装并引入polyfill来转义es7的新api
 
+
+var app = new _koa2.default();
+
+// 跨域
+app.use(cors({
+    origin: function origin(ctx) {
+        if (ctx.url === '/test') {
+            return false;
+        }
+        return '*';
+    },
+    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'],
+    maxAge: 5,
+    credentials: true,
+    allowMethods: ['GET', 'POST', 'DELETE'],
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept']
+}));
 
 _initController2.default.init(app, _koaSimpleRouter2.default); // 初始化路由
 

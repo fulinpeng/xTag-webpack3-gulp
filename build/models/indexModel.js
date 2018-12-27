@@ -56,6 +56,31 @@ var indexModel = function () {
         });
       });
     }
+  }, {
+    key: "list",
+    value: function list() {
+      return new Promise(function (reselve, reject) {
+        (0, _requestPromise2.default)({
+          uri: "http://192.168.0.162:57002/task/list",
+          method: "GET"
+        }).then(function (data) {
+          console.log('@@@@@@@@-success', data);
+          // const result = JSON.parse(data);
+          if (data) {
+            reselve(data);
+          } else {
+            reject({});
+          }
+        }, function (err) {
+          console.log('########-err', err);
+          if (err) {
+            reselve(err);
+          } else {
+            reject({});
+          }
+        });
+      });
+    }
   }]);
 
   return indexModel;

@@ -21,6 +21,12 @@ const indexController = {
       const indexMode_ = new indexModel();
       ctx.body = await indexMode_.addition();
     };
+  },
+  list() {
+    return async (ctx, next) => {
+      const indexMode_ = new indexModel();
+      ctx.body = await indexMode_.list();
+    };
   }
 };
 
